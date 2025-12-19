@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-web-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-web-server
+  template:
+    metadata:
+      labels:
+        app: python-web-server
+    spec:
+      containers:
+      - name: python-web-server
+        image: supenablementk8s.azurecr.io/python-flask:1.1
+        ports:
+        - containerPort: 80
