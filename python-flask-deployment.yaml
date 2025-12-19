@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-web-server
+  name: python-flask-musl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python-web-server
+      app: python-flask-musl
   template:
     metadata:
       labels:
-        app: python-web-server
+        app: python-flask-musl
     spec:
       containers:
-      - name: python-web-server
-        image: supenablementk8s.azurecr.io/python-flask:1.1
+      - name: python-flask-musl
+        image: ghcr.io/averagenative/python-musl-flask:latest
         ports:
         - containerPort: 80
